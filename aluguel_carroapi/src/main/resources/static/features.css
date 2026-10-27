@@ -1,0 +1,38 @@
+.intro-panel {
+    background: #fff;
+    border: 1px solid #e5ebf0;
+    border-radius: 15px;
+    padding: 25px 27px;
+}
+
+.intro-panel h1 { margin: 0 0 8px; font-size: 27px; }
+.intro-panel p { margin: 0 0 17px; color: #657588; font-size: 14px; }
+.management-section { margin-bottom: 24px; scroll-margin-top: 20px; }
+.management-grid { display: grid; grid-template-columns: minmax(260px, 320px) minmax(0, 1fr); border-top: 1px solid #edf1f4; }
+.management-form { padding: 22px 25px; border-right: 1px solid #edf1f4; }
+.management-form input, .management-form select { margin-bottom: 14px; }
+.management-form .form-hint { margin: 2px 0 15px; }
+.management-grid .table-scroll { min-width: 0; }
+.management-grid table { min-width: 570px; }
+.management-grid th, .management-grid td { padding: 14px 15px; }
+.management-grid .table-message { white-space: normal; }
+.cancel-button { width: 100%; margin-top: 9px; }
+.action-cell { display: flex; gap: 7px; flex-wrap: wrap; }
+.small-button { border: 1px solid #cbd9e2; background: #fff; color: #24475a; border-radius: 7px; padding: 6px 9px; font-size: 11px; font-weight: 700; }
+.small-button:hover { background: #eef7f5; }
+.small-button.danger { color: #a53535; border-color: #eacaca; }
+.small-button.danger:hover { background: #fff0f0; }
+.small-button:disabled { opacity: .45; cursor: not-allowed; }
+.badge.finished { color: #526779; background: #edf1f4; }
+
+@media (max-width: 1050px) {
+    .management-grid { grid-template-columns: 1fr; }
+    .management-form { border-right: 0; border-bottom: 1px solid #edf1f4; }
+}
+
+@media (max-width: 700px) {
+    .management-form { padding: 20px; }
+    .intro-panel { padding: 20px; }
+    .intro-panel h1 { font-size: 23px; }
+    .nav-list { flex-wrap: wrap; }
+}

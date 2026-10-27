@@ -29,10 +29,6 @@ public class Aluguel {
     private Carro carro;
 
     @ManyToOne
-    @JoinColumn(name = "id_funcionario")
-    private Funcionario funcionario;
-
-    @ManyToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
@@ -44,5 +40,8 @@ public class Aluguel {
 
     @Column(name = "preco", precision = 10, scale = 2)
     private BigDecimal preco;
+
+    @Column(name = "data_devolucao")
+    private LocalDate dataDevolucao;
 
 }

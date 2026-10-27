@@ -1,15 +1,15 @@
 package io.github.yasudakenji.aluguel_carroapi.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import org.hibernate.annotations.AnyDiscriminatorImplicitValues;
-import org.springframework.boot.autoconfigure.web.WebProperties;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.UUID;
 
 @Entity
 @Table(name= "loja")
-@Data
+@Getter
+@Setter
 public class Loja {
 
     @Id
@@ -22,4 +22,5 @@ public class Loja {
 
     @Column(name = "cidade")
     private String cidade;
+
 }

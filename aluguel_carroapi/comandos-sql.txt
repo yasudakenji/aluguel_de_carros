@@ -1,48 +1,36 @@
-create table loja (
-	id uuid not null primary key,
-	endereco varchar (100) not null,
-	cidade varchar (100) not null
+-- Execute este arquivo em um banco de dados vazio.
+-- Para atualizar um banco que ja possui as tabelas, use migracao-banco-existente.sql.
+
+create table if not exists loja (
+    id uuid primary key,
+    endereco varchar(200) not null,
+    cidade varchar(100) not null
 );
 
-create table funcionario (
-	id uuid not null primary key,
-	id_loja uuid notnull references loja (id),
-	nome varchar (100) not null
-	);
-
-create table carro (
-	id uuid not null primary key,
-	id_loja uuid not null references loja (id),
-	modelo varchar (30) not null,
-	categoria varchar (30) not null,
-	data_fabricacao date not null,
-	preco_fixo numeric (18,2) not null
+create table if not exists carro (
+    id uuid primary key,
+    id_loja uuid not null references loja(id),
+    modelo varchar(100) not null,
+    categoria varchar(30) not null,
+    data_fabricacao date not null,
+    preco_fixo numeric(18,2) not null,
+    status varchar(30) not null default 'DISPONIVEL'
 );
 
-create table cliente (
-	id uuid not null primary key,
-	nome varchar (30) not null,
-	cpf varchar (14) not null unique,
-	telefone varchar (20) not null
+create table if not exists cliente (
+    id uuid primary key,
+    nome varchar(100) not null,
+    cpf varchar(14) not null unique,
+    telefone varchar(20) not null
 );
 
-create table aluguel (
-	id uuid not null primary key,
-	id_loja uuid not null references loja (id),
-	id_carro uuid not null references carro (id),
-	id_funcionario uuid not null references funcionario(id),
-	id_cliente uuid not null references cliente (id),
-	dia_alugado date not null,
-	tempo integer notnull,
-	preco numeric (10,2) not null
+create table if not exists aluguel (
+    id uuid primary key,
+    id_loja uuid not null references loja(id),
+    id_carro uuid not null references carro(id),
+    id_cliente uuid not null references cliente(id),
+    dia_alugado date not null,
+    tempo integer not null,
+    preco numeric(10,2) not null,
+    data_devolucao date
 );
-
-
-
-
-
-
-
-
-
-
