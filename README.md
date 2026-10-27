@@ -74,8 +74,8 @@ Git deve mostrar uma versão; `java` e `javac` devem mostrar a versão 25. O com
 ### 2. Baixar o projeto
 
 ```powershell
-git clone https://github.com/yasudakenji/car-rental-fullstack.git
-cd car-rental-fullstack\aluguel_carroapi
+git clone https://github.com/yasudakenji/aluguel-de-carro.git
+cd aluguel-de-carro\aluguel_carroapi
 ```
 
 Esses comandos baixam o projeto e entram na pasta da aplicação. Confira se você está no lugar certo:
