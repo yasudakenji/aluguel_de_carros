@@ -1,4 +1,5 @@
 [data-panel][hidden] { display: none; }
+.nav-icon svg { display: block; width: 24px; height: 24px; }
 
 .intro-panel {
     background: #fff;
