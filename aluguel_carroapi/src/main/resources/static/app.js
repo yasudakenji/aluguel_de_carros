@@ -166,12 +166,13 @@ function renderAlugueis() {
     const tbody = document.querySelector("#alugueis-tabela");
     tbody.replaceChildren();
     if (!alugueis.length) {
-        showTableMessage(tbody, 8, "Nenhum aluguel registrado.");
+        showTableMessage(tbody, 9, "Nenhum aluguel registrado.");
         return;
     }
     for (const aluguel of alugueis) {
         const row = document.createElement("tr");
         addCell(row, aluguel.modeloCarro);
+        addCell(row, aluguel.cidadeLoja);
         addCell(row, aluguel.nomeCliente);
         addCell(row, formatCpf(aluguel.cpfCliente));
         addCell(row, formatDate(aluguel.data));
@@ -261,10 +262,11 @@ async function refreshData() {
     }
     if (results[3].status === "rejected") {
         alugueis = [];
-        showTableMessage(document.querySelector("#alugueis-tabela"), 8, results[3].reason.message);
+        showTableMessage(document.querySelector("#alugueis-tabela"), 9, results[3].reason.message);
     }
     document.querySelector("#aluguel-submit").disabled =
         !carros.some(carro => carro.statusCarro === "DISPONIVEL") || clientes.length === 0;
+    atualizarLojaDoAluguel();
     refreshButton.disabled = false;
 }
 
@@ -340,6 +342,14 @@ async function devolverAluguel(aluguel) {
     } catch (error) {
         showFeedback("aluguel-feedback", error.message, "error");
     }
+}
+
+function atualizarLojaDoAluguel() {
+    const carro = carros.find(item => item.id === aluguelCarroSelect.value);
+    const loja = lojas.find(item => item.id === carro?.idLoja);
+    document.querySelector("#aluguel-loja").value = loja
+        ? `${loja.cidade} — ${loja.endereco}`
+        : carro?.cidadeLoja || "";
 }
 
 function atualizarTotal() {
@@ -450,7 +460,10 @@ aluguelForm.addEventListener("submit", async event => {
 document.querySelector("#loja-cancelar").addEventListener("click", cancelarLoja);
 document.querySelector("#carro-cancelar").addEventListener("click", cancelarCarro);
 document.querySelector("#cliente-cancelar").addEventListener("click", cancelarCliente);
-aluguelCarroSelect.addEventListener("change", atualizarTotal);
+aluguelCarroSelect.addEventListener("change", () => {
+    atualizarTotal();
+    atualizarLojaDoAluguel();
+});
 aluguelForm.elements.namedItem("tempo").addEventListener("input", atualizarTotal);
 refreshButton.addEventListener("click", refreshData);
 function mostrarPainelSelecionado() {

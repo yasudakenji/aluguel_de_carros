@@ -110,6 +110,8 @@
                         <form id="aluguel-form" class="management-form">
                             <label for="aluguel-carro">Carro disponível</label>
                             <select id="aluguel-carro" name="idCarro" required><option value="">Carregando carros...</option></select>
+                            <label for="aluguel-loja">Loja do carro</label>
+                            <input id="aluguel-loja" readonly placeholder="Selecione um carro para ver a loja">
                             <label for="aluguel-cpf">CPF do cliente cadastrado</label>
                             <input id="aluguel-cpf" name="cpfCliente" required inputmode="numeric" maxlength="14" placeholder="CPF do cliente">
                             <label for="aluguel-dias">Quantidade de dias</label>
@@ -118,7 +120,7 @@
                             <button id="aluguel-submit" class="primary-button" type="submit">Registrar aluguel</button>
                             <p id="aluguel-feedback" class="feedback" role="status" aria-live="polite"></p>
                         </form>
-                        <div class="table-scroll"><table><thead><tr><th>Carro</th><th>Cliente</th><th>CPF</th><th>Data</th><th>Dias</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead><tbody id="alugueis-tabela"></tbody></table></div>
+                        <div class="table-scroll"><table><thead><tr><th>Carro</th><th>Loja</th><th>Cliente</th><th>CPF</th><th>Data</th><th>Dias</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead><tbody id="alugueis-tabela"></tbody></table></div>
                     </div>
                 </section>
                 <footer>Aluguel · Projeto de estudos em Spring Boot</footer>
