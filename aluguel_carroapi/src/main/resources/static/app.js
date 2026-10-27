@@ -453,10 +453,26 @@ document.querySelector("#cliente-cancelar").addEventListener("click", cancelarCl
 aluguelCarroSelect.addEventListener("change", atualizarTotal);
 aluguelForm.elements.namedItem("tempo").addEventListener("input", atualizarTotal);
 refreshButton.addEventListener("click", refreshData);
-document.querySelectorAll(".nav-link").forEach(link => {
-    link.addEventListener("click", () => {
-        document.querySelectorAll(".nav-link").forEach(item => item.classList.remove("active"));
-        link.classList.add("active");
+function mostrarPainelSelecionado() {
+    const paineis = [...document.querySelectorAll("[data-panel]")];
+    const painelSelecionado = paineis.find(painel => `#${painel.id}` === window.location.hash)
+        || document.querySelector("#inicio");
+
+    paineis.forEach(painel => {
+        painel.hidden = painel !== painelSelecionado;
     });
-});
+    document.querySelectorAll(".nav-link").forEach(link => {
+        const selecionado = link.getAttribute("href") === `#${painelSelecionado.id}`;
+        link.classList.toggle("active", selecionado);
+        if (selecionado) {
+            link.setAttribute("aria-current", "page");
+        } else {
+            link.removeAttribute("aria-current");
+        }
+    });
+    window.scrollTo(0, 0);
+}
+
+window.addEventListener("hashchange", mostrarPainelSelecionado);
+mostrarPainelSelecionado();
 refreshData();

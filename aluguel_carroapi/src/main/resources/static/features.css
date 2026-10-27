@@ -1,3 +1,5 @@
+[data-panel][hidden] { display: none; }
+
 .intro-panel {
     background: #fff;
     border: 1px solid #e5ebf0;

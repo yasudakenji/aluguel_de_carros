@@ -26,13 +26,14 @@
             <div class="sidebar-footer">Sistema de aluguel de carros<br><span>Projeto acadêmico · UTFPR</span></div>
         </aside>
 
-        <main id="inicio" class="main-content">
+        <main class="main-content">
             <header class="topbar">
                 <div class="breadcrumb">Projeto de aluguel de carros</div>
                 <div class="environment"><span class="online-dot"></span> Ambiente local</div>
             </header>
 
             <div class="content">
+                <div id="inicio" data-panel>
                 <section class="intro-panel" aria-labelledby="page-title">
                     <h1 id="page-title">Painel da locadora</h1>
                     <p>Cadastre lojas, carros e clientes. Depois registre um aluguel pelo CPF do cliente.</p>
@@ -45,7 +46,9 @@
                     <article class="stat-card"><span class="stat-label">Lojas cadastradas</span><strong id="total-lojas">—</strong><span class="stat-note">Pontos de operação</span></article>
                 </section>
 
-                <section id="lojas" class="panel management-section" aria-labelledby="lojas-title">
+                </div>
+
+                <section id="lojas" data-panel hidden class="panel management-section" aria-labelledby="lojas-title">
                     <div class="section-heading"><div><span class="section-kicker">CADASTRO</span><h2 id="lojas-title">Lojas</h2></div></div>
                     <div class="management-grid">
                         <form id="loja-form" class="management-form">
@@ -61,7 +64,7 @@
                     </div>
                 </section>
 
-                <section id="veiculos" class="panel management-section" aria-labelledby="carros-title">
+                <section id="veiculos" data-panel hidden class="panel management-section" aria-labelledby="carros-title">
                     <div class="section-heading"><div><span class="section-kicker">CADASTRO</span><h2 id="carros-title">Carros</h2></div></div>
                     <div class="management-grid">
                         <form id="carro-form" class="management-form">
@@ -83,7 +86,7 @@
                     </div>
                 </section>
 
-                <section id="clientes" class="panel management-section" aria-labelledby="clientes-title">
+                <section id="clientes" data-panel hidden class="panel management-section" aria-labelledby="clientes-title">
                     <div class="section-heading"><div><span class="section-kicker">CADASTRO</span><h2 id="clientes-title">Clientes</h2></div></div>
                     <div class="management-grid">
                         <form id="cliente-form" class="management-form">
@@ -101,7 +104,7 @@
                     </div>
                 </section>
 
-                <section id="alugar" class="panel management-section" aria-labelledby="alugar-title">
+                <section id="alugar" data-panel hidden class="panel management-section" aria-labelledby="alugar-title">
                     <div class="section-heading"><div><span class="section-kicker">LOCAÇÃO</span><h2 id="alugar-title">Alugar carro</h2></div></div>
                     <div class="management-grid">
                         <form id="aluguel-form" class="management-form">
